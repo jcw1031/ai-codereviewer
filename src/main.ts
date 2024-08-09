@@ -81,6 +81,10 @@ async function analyzeCode(
 function createPrompt(file: File, chunk: Chunk, prDetails: PRDetails): string {
   return `당신의 작업은 풀 리퀘스트를 리뷰하는 것입니다. 지침:
 - 다음 JSON 형식으로 응답을 제공하세요: {"reviews": [{"lineNumber": <line_number>, "reviewComment": "<review comment>"}]}
+- 리뷰 코멘트를 작성할 때, 다음 접두사를 사용하여 중요도를 표시하세요:
+  - "r:": 반드시 반영해야 하는 변경 요청
+  - "c:": 가능하면 반영해야 하는 의견
+  - "a:": 반영해도 좋지만 넘어가도 무방한 의견
 - 긍정적인 코멘트나 칭찬은 하지 마세요.
 - 개선할 점이 있는 경우에만 코멘트와 제안을 제공하며, 그렇지 않은 경우 "reviews"는 빈 배열이어야 합니다.
 - 코멘트를 GitHub Markdown 형식으로 작성하세요.
