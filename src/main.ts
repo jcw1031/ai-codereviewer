@@ -104,9 +104,9 @@ Git diff to review:
 \`\`\`diff
 ${chunk.content}
 ${chunk.changes
-  // @ts-expect-error - ln and ln2 exists where needed
-  .map((c) => `${c.ln ? c.ln : c.ln2} ${c.content}`)
-  .join("\n")}
+    // @ts-expect-error - ln and ln2 exists where needed
+    .map((c) => `${c.ln ? c.ln : c.ln2} ${c.content}`)
+    .join("\n")}
 \`\`\`
 `;
 }
